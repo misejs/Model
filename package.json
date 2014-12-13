@@ -1,5 +1,5 @@
 {
-  "name": "Model",
+  "name": "mise-model",
   "version": "0.0.1",
   "description": "Mise js model superclass",
   "main": "lib/Model.js",
