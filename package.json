@@ -1,0 +1,23 @@
+{
+  "name": "Model",
+  "version": "0.0.1",
+  "description": "Mise js model superclass",
+  "main": "lib/Model.js",
+  "scripts": {
+    "test": "mocha --recursive --reporter spec --bail --check-leaks test/lib/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/misejs/Model.git"
+  },
+  "keywords": [
+    "Model",
+    "mise"
+  ],
+  "author": "Jesse Ditson <jesse.ditson@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/misejs/Model/issues"
+  },
+  "homepage": "https://github.com/misejs/Model"
+}
