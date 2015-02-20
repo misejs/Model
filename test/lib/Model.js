@@ -18,26 +18,6 @@ describe('Model',function(){
     assert.equal(typeof Thing.subclass, 'function');
   });
 
-  it('should allow subclassing of created models',function(){
-    var Thing = new Model('Thing',{},'things');
-    var NewModel = Thing.subclass();
-    NewModel.prototype.instance = function(){
-      return this;
-    };
-    NewModel.class = function(){
-      return NewModel;
-    };
-    assert.notDeepEqual(Thing,NewModel);
-    assert.equal(NewModel.class(),NewModel);
-
-    var instance = new NewModel();
-    assert.equal(instance.instance(),instance);
-
-    assert.ok(!Thing.class);
-    var thing = new Thing();
-    assert.ok(!thing.instance);
-  });
-
   it('should add getters and setters for properties',function(){
     var Thing = new Model('Thing',{
       property : {
@@ -141,6 +121,27 @@ describe('Model',function(){
       bool : true,
       whatever : { whatever : 'dude' }
     });
+  });
+
+  it('should allow subclassing of created models',function(){
+    var Thing = new Model('Thing',{ p : String },'things');
+    var NewModel = Thing.subclass();
+    NewModel.prototype.instance = function(){
+      return this;
+    };
+    NewModel.class = function(){
+      return NewModel;
+    };
+    assert.notDeepEqual(Thing,NewModel);
+    assert.equal(NewModel.class(),NewModel);
+
+    var instance = new NewModel({ p : 'somevalue' });
+    assert.equal(instance.instance(),instance);
+    assert.equal(instance.p,'somevalue');
+
+    assert.ok(!Thing.class);
+    var thing = new Thing();
+    assert.ok(!thing.instance);
   });
 
 });
