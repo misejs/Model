@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/misejs/Model/issues"
   },
-  "homepage": "https://github.com/misejs/Model"
+  "homepage": "https://github.com/misejs/Model",
+  "dependencies": {
+    "inherits": "^2.0.1"
+  }
 }
